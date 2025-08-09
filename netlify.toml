@@ -1,11 +1,11 @@
 [build]
   base = "."
   publish = "dist/d2-d-front"
-  command = "npm run build --prod"
+  command = "npm run build:prod"
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--force"
+  NPM_FLAGS = "--legacy-peer-deps"
   SECRETS_SCAN_ENABLED = "false"
 
 # Redirect rules for Angular SPA
@@ -21,6 +21,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
 # Configure secrets scanning to ignore the environment files
 [build.processing]
@@ -40,3 +41,10 @@
 # Environment-specific settings
 [context.production.environment]
   SECRETS_SCAN_OMIT_PATHS = "src/environments/*"
+
+# Branch-specific settings
+[context.deploy-preview]
+  command = "npm run build:prod"
+
+[context.branch-deploy]
+  command = "npm run build:prod"

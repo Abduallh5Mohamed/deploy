@@ -46,17 +46,22 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "3500kB",
-                  "maximumError": "5000kB"
+                  "maximumWarning": "4000kB",
+                  "maximumError": "6000kB"
                 }
               ],
               "allowedCommonJsDependencies": [
                 "leaflet",
-                "sweetalert2"
+                "sweetalert2",
+                "chart.js"
               ],
               "extractLicenses": true,
               "sourceMap": false,
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "namedChunks": false,
+              "aot": true,
+              "buildOptimizer": true
             },
             "development": {
               "optimization": true,

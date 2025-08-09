@@ -25,7 +25,7 @@ NG_APP_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
 ### Build Settings
 
 The `netlify.toml` file configures:
-- Build command: `npm run build --prod`
+- Build command: `npm run build:prod`
 - Publish directory: `dist/d2-d-front`
 - SPA redirects for Angular routing
 - Secrets scanning exclusion for environment files
@@ -40,3 +40,25 @@ If you continue having issues, you can also:
 ## Local Development
 
 For local development, the application will use the fallback values defined in the environment files.
+
+## Deployment Process
+
+1. Connect your repository to Netlify
+2. Set the environment variables as listed above
+3. Deploy using the configured build settings
+4. The application will be available at your Netlify domain
+
+## Troubleshooting
+
+- If build fails, check the build logs for specific errors
+- Ensure all environment variables are set correctly
+- Verify that the Node.js version is compatible (18.x recommended)
+- Check that all dependencies are properly installed
+
+## Performance Optimization
+
+The build is configured with:
+- Production optimization enabled
+- Source maps disabled for smaller bundle size
+- CSS and JS minification
+- Bundle size limits increased for the complex dashboard
